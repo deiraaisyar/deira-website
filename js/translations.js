@@ -25,6 +25,7 @@ const translations = {
     "hero.location":     "Bandung & Samarinda, Indonesia",
     "hero.greeting":     "Hi! I'm Deira",
     "hero.role":         "An Aspiring AI Engineer/Data Scientist",
+    "hero.edu":          "CS Undergraduate @ Universitas Gadjah Mada",
     "hero.desc":         "Bridging data science and engineering to build intelligent systems — from data pipelines to production deployment.",
 
     "latest.experiences":"Latest Experiences",
@@ -77,6 +78,7 @@ const translations = {
     "hero.location":     "Bandung & Samarinda, Indonesia",
     "hero.greeting":     "Hai! Saya Deira",
     "hero.role":         "Calon AI Engineer/Data Scientist",
+    "hero.edu":          "Mahasiswa S1 Ilmu Komputer @ Universitas Gadjah Mada",
     "hero.desc":         "Menghubungkan data science dan rekayasa untuk membangun sistem cerdas — dari pipeline data hingga deployment produksi.",
 
     "latest.experiences":"Pengalaman Terbaru",
@@ -139,6 +141,9 @@ function applyTranslations(lang = currentLang) {
 function toggleLanguage() {
   currentLang = currentLang === "EN" ? "ID" : "EN";
   localStorage.setItem("lang", currentLang);
+  // Re-render data-driven cards (content.js) so their EN/ID text updates too,
+  // then translate any [data-i18n] nodes (including freshly injected ones).
+  if (typeof renderContent === "function") renderContent();
   applyTranslations(currentLang);
   const btn = document.getElementById("lang-toggle");
   if (btn) btn.textContent = currentLang;

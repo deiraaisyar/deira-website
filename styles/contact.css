@@ -2,17 +2,30 @@
    contact.css
    =========================================================== */
 
-.contact-inner {
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: left;
+/* Two-column on desktop so the section spans the same width as the others */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.contact-intro .section-heading {
+  margin-bottom: 1rem;
 }
 
 .contact-sub {
-  font-size: 1.05rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.7;
   color: var(--color-text-secondary);
-  margin-top: -1.75rem;
-  margin-bottom: 2.5rem;
+  max-width: 42ch;
+}
+
+@media (max-width: 767px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 .contact-form {
