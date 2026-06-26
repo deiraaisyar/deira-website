@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Achievements — Deira Aisyarefani</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/navbar.css" />
+  <link rel="stylesheet" href="styles/projects.css" />
+  <link rel="stylesheet" href="styles/achievements.css" />
+</head>
+<body>
+  <header class="navbar">
+    <nav class="navbar-inner">
+      <a href="index.html#hero" class="brand" data-i18n="nav.brand">Deira</a>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="index.html#experiences" data-i18n="nav.experiences">Experiences</a></li>
+        <li><a href="index.html#achievements" data-i18n="nav.achievements">Achievements</a></li>
+        <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-utils">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <img src="assets/icons/night-mode.svg" alt="" class="icon" id="theme-icon" />
+        </button>
+        <button class="lang-btn" id="lang-toggle" aria-label="Toggle language">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="section-inner">
+        <a class="back-link" href="index.html">
+          <img src="assets/icons/arrow-right.svg" alt="" class="icon back-arrow" />
+          <span data-i18n="common.back">Back to home</span>
+        </a>
+        <h1 class="page-title" data-i18n="nav.achievements">Achievements</h1>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner">
+        <!-- Rendered from js/content.js (ACHIEVEMENTS). No data-limit = show all. -->
+        <div class="card-grid" id="achievements-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-credit">&copy; <span id="footer-year">2026</span> Deira Aisya Refani</p>
+      <div class="footer-links">
+        <a class="footer-link" href="mailto:deiraaisyarefani@gmail.com" aria-label="Email">
+          <img src="assets/icons/envelope.svg" alt="" class="icon" />
+          <span class="footer-link-label">deiraaisyarefani@gmail.com</span>
+        </a>
+        <a class="footer-link" href="https://linkedin.com/in/deira-aisyarefani" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img src="assets/icons/linkedin-logo.svg" alt="" class="icon" />
+          <span class="footer-link-label">LinkedIn</span>
+        </a>
+        <a class="footer-link" href="https://github.com/deiraaisya" target="_blank" rel="noopener" aria-label="GitHub">
+          <img src="assets/icons/github-logo.svg" alt="" class="icon" />
+          <span class="footer-link-label">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/subpage.js"></script>
+</body>
+</html>

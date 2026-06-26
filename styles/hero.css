@@ -1,0 +1,213 @@
+/* ===========================================================
+   hero.css
+   =========================================================== */
+
+#hero {
+  /* sit between the fixed navbar and the fixed footer, centered */
+  min-height: calc(100vh - var(--footer-height));
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--nav-height) + clamp(2rem, 6vw, 4rem));
+  padding-bottom: clamp(2rem, 6vw, 4rem);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  width: 100%;
+}
+
+/* ----- Left column ----- */
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem); /* match .hero-desc */
+  color: var(--color-text-secondary);
+  margin-bottom: 1.75rem;
+  min-height: 1.4em; /* reserve space so the typing animation never shifts layout */
+}
+
+.hero-location .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.typewriter {
+  white-space: nowrap;
+}
+
+/* blinking caret next to the typed text */
+.type-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 1px;
+  background: var(--color-text-secondary);
+  transform: translateY(2px);
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.hero-greeting {
+  font-size: clamp(2.75rem, 7vw, 5.75rem);
+  font-weight: 800;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.1rem;
+}
+
+.hero-role {
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.hero-desc {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 60ch;
+  margin-bottom: 2.5rem;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  transition: background-color var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.pill:hover {
+  background-color: var(--color-surface);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.pill .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.pill .pill-svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-primary); /* inline SVG follows currentColor, so it adapts to dark mode */
+}
+
+/* ----- Right column: single-photo carousel ----- */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto; /* keep the photo aligned to the right edge */
+  outline: none;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.35);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* prev / next buttons (the arrow icon already carries its own circle) */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 0.85;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.carousel-btn .icon {
+  width: 36px;
+  height: 36px;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.12);
+}
+
+.carousel-prev { left: 12px; }
+.carousel-next { right: 12px; }
+
+/* dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.carousel-dot.active {
+  background-color: var(--color-accent);
+  transform: scale(1.3);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 767px) {
+  #hero {
+    min-height: auto;
+    padding-top: calc(var(--nav-height) + 2rem);
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,23 @@
+<section id="contact">
+  <div class="section-inner contact-inner">
+    <h2 class="section-heading reveal" data-i18n="contact.heading">Contact</h2>
+    <p class="contact-sub reveal" data-i18n="contact.sub">Got a project or opportunity? Let's talk.</p>
+
+    <!-- Replace YOUR_FORM_ID with your real Formspree form id -->
+    <form class="contact-form reveal" id="contact-form"
+          action="https://formspree.io/f/meebgljj" method="POST">
+      <input type="text" name="name" required
+             placeholder="Your name" data-i18n="contact.name" data-i18n-attr="placeholder" />
+      <input type="email" name="email" required
+             placeholder="your@email.com" data-i18n="contact.email" data-i18n-attr="placeholder" />
+      <input type="text" name="subject"
+             placeholder="Project inquiry, job offer, collaboration…" data-i18n="contact.subject" data-i18n-attr="placeholder" />
+      <textarea name="message" rows="6" required
+                placeholder="Hi Deira, I'd like to discuss… (feel free to include your timeline, budget, or any relevant details)"
+                data-i18n="contact.message" data-i18n-attr="placeholder"></textarea>
+
+      <button type="submit" class="contact-submit" data-i18n="contact.send">Send Message</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>

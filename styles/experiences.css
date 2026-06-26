@@ -1,0 +1,102 @@
+/* ===========================================================
+   experiences.css — vertical timeline
+   =========================================================== */
+
+.exp-subsection {
+  max-width: none; /* fill the full section width on desktop */
+  margin: 0 0 2.5rem;
+}
+
+.exp-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.exp-subhead {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+/* the vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 7px;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  border: 3px solid var(--color-accent);
+  z-index: 1;
+}
+
+.timeline-content {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  transition: border-color var(--transition);
+}
+
+.timeline-content:hover {
+  border-color: var(--color-accent);
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.timeline-org {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+}
+
+.timeline .empty-note {
+  border: 1px dashed var(--color-border);
+}

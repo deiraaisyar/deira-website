@@ -1,0 +1,286 @@
+/* ===========================================================
+   base.css — CSS variables, reset, typography, dark mode tokens
+   =========================================================== */
+
+:root {
+  /* Light theme */
+  --color-bg:            #ffffff;
+  --color-bg-secondary:  #f5f5f5;
+  --color-surface:       #efefef;
+  --color-border:        #d4d4d4;
+  --color-text-primary:  #0a0a0a;
+  --color-text-secondary:#525252;
+  --color-text-muted:    #a3a3a3;
+  --color-accent:        #171717;
+
+  /* Spacing / layout */
+  --nav-height: 76px;
+  --footer-height: 56px;
+  --max-width: 1760px;
+  --page-pad: clamp(1.25rem, 1.8vw, 2rem); /* shared horizontal gutter (navbar, sections, footer all align to this) */
+  --section-pad-y: clamp(2.25rem, 5vw, 3.5rem);
+  --radius: 6px;
+  --radius-pill: 999px;
+
+  /* Fluid type helpers */
+  --fs-h2: clamp(1.75rem, 4vw, 2.5rem);
+
+  --transition: 0.25s ease;
+
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+body.dark {
+  --color-bg:            #0a0a0a;
+  --color-bg-secondary:  #111111;
+  --color-surface:       #1c1c1c;
+  --color-border:        #2a2a2a;
+  --color-text-primary:  #fafafa;
+  --color-text-secondary:#a3a3a3;
+  --color-text-muted:    #525252;
+  --color-accent:        #e5e5e5;
+}
+
+/* ----- Reset ----- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition), color var(--transition);
+  /* leave room for the fixed footer so content never hides behind it */
+  padding-bottom: var(--footer-height);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ----- Shared layout ----- */
+section {
+  scroll-margin-top: var(--nav-height);
+  padding: var(--section-pad-y) 0;
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-pad); /* same gutter as navbar-inner / footer-inner so left edges line up */
+}
+
+section:nth-of-type(even) {
+  background-color: var(--color-bg-secondary);
+}
+
+.section-heading {
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+}
+
+/* heading row: "Latest X" on the left, "See more →" on the right */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.section-head .section-heading {
+  margin-bottom: 0;
+}
+
+.see-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: color var(--transition), gap var(--transition);
+}
+
+.see-more:hover {
+  color: var(--color-text-primary);
+  gap: 0.65rem;
+}
+
+.see-more-arrow {
+  width: 16px;
+  height: 16px;
+}
+
+/* ----- Standalone full pages (experiences / projects / achievements) ----- */
+.page-header {
+  padding-top: calc(var(--nav-height) + clamp(2rem, 6vw, 4rem));
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  transition: color var(--transition), gap var(--transition);
+}
+
+.back-link:hover {
+  color: var(--color-text-primary);
+  gap: 0.6rem;
+}
+
+.back-arrow {
+  width: 16px;
+  height: 16px;
+  transform: scaleX(-1); /* arrow-right flipped to point back */
+}
+
+.page-title {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ----- Icons ----- */
+.icon {
+  width: 20px;
+  height: 20px;
+  /* SVGs are black; invert in dark mode so they read on dark bg */
+}
+
+body.dark .icon {
+  filter: invert(1);
+}
+
+/* ----- Reveal animation (IntersectionObserver) ----- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ----- Search highlight ----- */
+mark.search-hit {
+  background: #fde047;
+  color: #0a0a0a;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* ----- Footer (fixed bar, like the navbar) ----- */
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  height: var(--footer-height);
+  background-color: color-mix(in srgb, var(--color-bg) 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-credit {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: color var(--transition);
+}
+
+.footer-link:hover {
+  color: var(--color-text-primary);
+}
+
+.footer-link .icon {
+  width: 17px;
+  height: 17px;
+}
+
+@media (max-width: 767px) {
+  /* Drop the long email label; keep the icons so the bar stays slim on phones */
+  .footer-credit { font-size: 0.78rem; white-space: normal; }
+  .footer-links { gap: 1rem; }
+  .footer-link .footer-link-label { display: none; }
+}

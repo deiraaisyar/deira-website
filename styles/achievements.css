@@ -1,0 +1,61 @@
+/* ===========================================================
+   achievements.css — card grid (variant of .card-grid)
+   =========================================================== */
+
+.achievement-card {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.achievement-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+.achievement-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.achievement-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.achievement-badge {
+  align-self: flex-start;
+  margin-bottom: 0.15rem;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.achievement-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.achievement-org {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.achievement-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+}

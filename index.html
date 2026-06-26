@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deira's Portfolio</title>
+  <meta name="description" content="Portfolio of Deira Aisyarefani, an aspiring AI Engineer / Data Scientist bridging data science and engineering." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/navbar.css" />
+  <link rel="stylesheet" href="styles/hero.css" />
+  <link rel="stylesheet" href="styles/techstack.css" />
+  <link rel="stylesheet" href="styles/projects.css" />
+  <link rel="stylesheet" href="styles/experiences.css" />
+  <link rel="stylesheet" href="styles/achievements.css" />
+  <link rel="stylesheet" href="styles/contact.css" />
+  <link rel="stylesheet" href="styles/search.css" />
+</head>
+<body>
+  <!-- ===== Navbar ===== -->
+  <header class="navbar">
+    <nav class="navbar-inner">
+      <a href="#hero" class="brand" data-i18n="nav.brand" data-scroll>Deira</a>
+
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#projects" data-i18n="nav.projects" data-scroll>Projects</a></li>
+        <li><a href="#experiences" data-i18n="nav.experiences" data-scroll>Experiences</a></li>
+        <li><a href="#achievements" data-i18n="nav.achievements" data-scroll>Achievements</a></li>
+        <li><a href="#contact" data-i18n="nav.contact" data-scroll>Contact</a></li>
+      </ul>
+
+      <div class="nav-utils">
+        <button class="icon-btn" id="search-toggle" aria-label="Search">
+          <img src="assets/icons/search.svg" alt="" class="icon" />
+        </button>
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <img src="assets/icons/night-mode.svg" alt="" class="icon" id="theme-icon" />
+        </button>
+        <button class="lang-btn" id="lang-toggle" aria-label="Toggle language">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Search overlay ===== -->
+  <div class="search-overlay" id="search-overlay" hidden>
+    <div class="search-box">
+      <img src="assets/icons/search.svg" alt="" class="icon search-box-icon" />
+      <input type="text" id="search-input" placeholder="Search the page…" data-i18n-attr="placeholder" data-i18n="search.placeholder" autocomplete="off" />
+      <button class="icon-btn" id="search-close" aria-label="Close search">✕</button>
+    </div>
+    <p class="search-hint" id="search-hint"></p>
+  </div>
+
+  <!-- ===== Section mount points ===== -->
+  <main>
+    <div id="mount-hero"></div>
+    <div id="mount-techstack"></div>
+    <div id="mount-projects"></div>
+    <div id="mount-experiences"></div>
+    <div id="mount-achievements"></div>
+    <div id="mount-contact"></div>
+  </main>
+
+  <!-- ===== Footer (fixed, like the navbar) ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-credit">
+        &copy; <span id="footer-year">2026</span> Deira Aisya Refani
+      </p>
+      <div class="footer-links">
+        <a class="footer-link" href="mailto:deiraaisyarefani@gmail.com" aria-label="Email">
+          <img src="assets/icons/envelope.svg" alt="" class="icon" />
+          <span class="footer-link-label">deiraaisyarefani@gmail.com</span>
+        </a>
+        <a class="footer-link" href="https://linkedin.com/in/deira-aisyarefani" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img src="assets/icons/linkedin-logo.svg" alt="" class="icon" />
+          <span class="footer-link-label">LinkedIn</span>
+        </a>
+        <a class="footer-link" href="https://github.com/deiraaisya" target="_blank" rel="noopener" aria-label="GitHub">
+          <img src="assets/icons/github-logo.svg" alt="" class="icon" />
+          <span class="footer-link-label">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
